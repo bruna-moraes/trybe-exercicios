@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrybeTrip</title>
+</head>
+<body>
+  <header>
+
+  </header>
+
+  <main>
+    <form action="">
+      <label for="input-full-name">Nome:</label>
+      <input type="text" name="name" id="input-full-name" placeholder="Digite seu nome" required minlength="10" maxlength="40">
+
+      <label for="input-email">Email:</label>
+      <input type="email" name="email" id="input-email" placeholder="Digite seu email" required minlength="10" maxlength="50">
+
+      <span>Destino Preferido:</span>
+
+      <input type="radio" name="places" id="campo-id" value="Campo" checked>
+      <label for="campo-id">Campo</label>
+      
+      <input type="radio" name="places" id="cidade-id" value="Cidade">
+      <label for="cidade-id">Cidade</label>
+
+      <input type="radio" name="places" id="montanha-id" value="Montanha">
+      <label for="montanha-id">Montanha</label>
+
+      <input type="radio" name="places" id="praia-id" value="Praia">
+      <label for="praia-id">Praia</label>
+
+      <label for="why">Por que você deveria ser a pessoa desenvolvedora a ganhar o concurso TrybeTrip</label>
+      <textarea name="why" id="why" cols="30" rows="10" maxlength="500"></textarea>
+
+      <label for="date">Qual a melhor data para realizar sua viagem?</label>
+      <input type="date" name="date" id="date">
+
+      <input type="checkbox" name="oportunities" id="oportunities">
+      <label for="oportunities">Gostaria de receber outras incríveis oportunidades oferecidas pela Trybe?</label>
+
+      <input type="checkbox" name="image-authorization" id="image-authorization">
+      <label for="image-authorization">Concordo que imagens das minhas férias poderão ser usadas na divulgação de concursos futuros</label>
+
+      <button id="button-submit" type="submit">Enviar</button>
+
+      <button id="button-clear" type="button">Apagar</button>
+    </form>
+  </main>
+
+  <script>
+    const buttonForms = document.querySelector('#button-submit');
+    const buttonClear = document.querySelector('#button-clear');
+
+    function preventDefault() {
+      event.preventDefault();
+    }
+
+    buttonForms.addEventListener('click', preventDefault)
+
+    function clearForms() {
+      const nameInput = document.querySelector('#input-full-name')
+      const emailInput = document.querySelector('#input-email')
+      const campoRadio = document.querySelector('#campo-id')
+      const textareaInput = document.querySelector('#why')
+      const checkboxOportunities = document.querySelector('#oportunities')
+      const checkboxImageAuthorization = document.querySelector('#image-authorization')
+      const dateInput = document.querySelector('#date')
+
+      nameInput.value = ''
+      emailInput.value = ''
+      campoRadio.checked = true
+      textareaInput.value = ''
+      checkboxOportunities.checked = false
+      checkboxImageAuthorization.checked = false
+      dateInput.value = ''
+    }
+
+    buttonClear.addEventListener('click', clearForms)
+  </script>
+</body>
+</html>
